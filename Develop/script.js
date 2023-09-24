@@ -24,7 +24,7 @@ function writePassword() {
   var validChar = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","$","&","-","_","#","@","?", "1","2","3","4","5","6","7","8","9"];
   */
 
-// Function that generates new password
+// Function generates new password
 function generatePassword() {
   var newPass = "";
   var passLength = 10;
@@ -36,14 +36,18 @@ function generatePassword() {
   for (let i = 0; i < passLength; i++)
   newPass += validChar[Math.floor(Math.random() * validChar.length)];
 
-  // 
+  // sets barrier for min and max of valid characters
   if (newPass.length < 8) {
     prompt("Password must be 8-128 characters and include valid character types")
   } else if (newPass.length > 128) {
     prompt("Password must be 8-128 characters and include valid character types")
   }
   
-return confirm(newPass);
+  //This return logs new password to window
+  //return newPass 
+
+  //logs new password with confirmation in pop up window
+  return confirm(newPass);
 };
 
 // Add event listener to generate button
