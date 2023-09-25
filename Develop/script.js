@@ -44,10 +44,10 @@ function generatePassword() {
   }
   
   //This return logs new password to window
-  //return newPass 
+  return newPass; 
 
   //logs new password with confirmation in pop up window
-  return confirm(newPass);
+  //return confirm(newPass);
 };
 
 // Add event listener to generate button
