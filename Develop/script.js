@@ -26,7 +26,7 @@ function writePassword() {
 
 // Function generates new password
 function generatePassword() {
-  var newPass = "";
+  var newPassword = "";
   var passLength = 10;
 
   //Valid Characters for password
@@ -34,20 +34,20 @@ function generatePassword() {
 
   // Generate random selection of characters 
   for (let i = 0; i < passLength; i++)
-  newPass += validChar[Math.floor(Math.random() * validChar.length)];
+  newPassword += validChar[Math.floor(Math.random() * validChar.length)];
 
   // sets barrier for min and max of valid characters
-  if (newPass.length < 8) {
-    prompt("Password must be 8-128 characters and include valid character types")
-  } else if (newPass.length > 128) {
-    prompt("Password must be 8-128 characters and include valid character types")
-  }
+  if (newPassword.length < 8) {
+    alert("Password must be 8-128 characters and include valid character types")
+  } else if (newPassword.length > 128) {
+    alert("Password must be 8-128 characters and include valid character types")
+  };
   
   //This return logs new password to window
-  return newPass; 
+    return newPassword; 
 
   //logs new password with confirmation in pop up window
-  //return confirm(newPass);
+    //return confirm(newPassword);
 };
 
 // Add event listener to generate button
