@@ -21,7 +21,7 @@ function writePassword() {
 
 //verifies length of password
 function verifyLength(passLength) {
-  if (passLength > 8 && passLength < 128) {
+  if (passLength >= 8 && passLength <= 128) {
     return true;
   } else {
     return false;
@@ -40,20 +40,17 @@ function generatePassword() {
   var passLength = prompt("Choose a password with 8-128 characters");
 
   //sets different character types to choose from
-  let validChar = {
-    upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    lowerCase: "abcdefghijklmnopqrstuvwxyz",
-    numbers: "1234567890",
-    symbols: "!@#$%^&*()`~{}|[]()"
-  }
-
+    var charUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var charLowerCase = "abcdefghijklmnopqrstuvwxyz";
+    var charNumbers = "1234567890";
+    var charSymbols = "!@#$%^&*()`~{}|[]()";
 
   // sets confirmation for password options
   if (verifyLength(passLength)) {
-    let addUpperCase = confirm("Will this password have capital letters?");
-    let addLowerCase = confirm("Will this password have lowercase letters?");
-    let addNumbers = confirm("Will this password have numbers?");
-    let addSymbols = confirm("Will this password have symbol keys?");
+    var addUpperCase = confirm("Will this password have capital letters?");
+    var addLowerCase = confirm("Will this password have lowercase letters?");
+    var addNumbers = confirm("Will this password have numbers?");
+    var addSymbols = confirm("Will this password have symbol keys?");
 
     //Combines chosen letters
     //if (addUpperCase) charArray.push(validChar.upperCase);
@@ -62,20 +59,20 @@ function generatePassword() {
     //if (addSymbols) charArray.push(validChar.symbols);
   
   if (addUpperCase) {
-    return charString += validChar.upperCase
+     charString += charUpperCase
   } else if (addLowerCase){
-    return charString += validChar.lowerCase
+     charString += charLowerCase
   } else if (addNumbers) {
-    return charString += validChar.numbers
+     charString += charNumbers
   } else if (addSymbols){
-    return charString += validChar.symbols
+     charString += charSymbols
   }
 }
   
    // Generate random password based on selection of characters in array
   for (let i = 0; i < passLength; i++) {
-    randPassword = (Math.floor(Math.random() * charString.length));
-    newPassword += charString.charAt(randPassword)
+    randPassword = Math.floor(Math.random() * charString.length)
+    newPassword += charString.charAt(randPassword);
   }
 
 
