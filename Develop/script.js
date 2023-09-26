@@ -10,15 +10,6 @@ function writePassword() {
   
 }
 
-/*function validate() {
-  if (newPass.length < 8) {
-    prompt("Password must be 8-128 characters and include valid character types")
-  } else if (newPass.length > 128) {
-    prompt("Password must be 8-128 characters and include valid character types")
-  }
-}
-*/
-
 //verifies length of password
 function verifyLength(passLength) {
   if (passLength >= 8 && passLength <= 128) {
@@ -51,21 +42,30 @@ function generatePassword() {
     var addLowerCase = confirm("Will this password have lowercase letters?");
     var addNumbers = confirm("Will this password have numbers?");
     var addSymbols = confirm("Will this password have symbol keys?");
-
-    //Combines chosen letters
-    //if (addUpperCase) charArray.push(validChar.upperCase);
-    //if (addLowerCase) charArray.push(validChar.lowerCase);
-    //if (addNumbers) charArray.push(validChar.numbers);
-    //if (addSymbols) charArray.push(validChar.symbols);
   
+    //Pushes letters and symbols into charString if user chooses to include type
   if (addUpperCase) {
      charString += charUpperCase
-  } else if (addLowerCase){
+  } else {
+    return false
+  }
+
+  if (addLowerCase){
      charString += charLowerCase
-  } else if (addNumbers) {
+  } else {
+    return false
+  }
+
+  if (addNumbers) {
      charString += charNumbers
-  } else if (addSymbols){
+  } else {
+    return false
+  }
+
+  if (addSymbols){
      charString += charSymbols
+  } else {
+    return false
   }
 }
   
