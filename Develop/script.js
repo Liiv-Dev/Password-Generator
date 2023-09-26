@@ -43,6 +43,7 @@ function generatePassword() {
     var addNumbers = confirm("Will this password have numbers?");
     var addSymbols = confirm("Will this password have symbol keys?");
   
+    //**NOTE** Find code for passwords with characters removed
     //Pushes letters and symbols into charString if user chooses to include type
   if (addUpperCase) {
      charString += charUpperCase
