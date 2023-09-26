@@ -19,30 +19,30 @@ function writePassword() {
 }
 */
 
-  //array of valid characters to generate
-  /*
-  var validChar = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","$","&","-","_","#","@","?", "1","2","3","4","5","6","7","8","9"];
-  */
+function verifyLength(passLength) {
+  if (passLength.length > 8 && passLength < 128) {
+    return true;
+  } else {
+    return false;
+  };
+}
 
 // Function generates new password
 function generatePassword() {
   var newPassword = "";
-  var passLength = 10;
+  var passLength = prompt("Choose a password with 8-128 characters")
 
-  //Valid Characters for password
-  var validChar = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[]{}()|!@#$&";
 
-  // Generate random selection of characters 
-  for (let i = 0; i < passLength; i++)
-  newPassword += validChar[Math.floor(Math.random() * validChar.length)];
-
-  // sets barrier for min and max of valid characters
-  if (newPassword.length < 8) {
+  // sets barrier for min and max of valid characters and selects password criteria
+  if (newPassword.length < 8 && passLength > 128) {
     alert("Password must be 8-128 characters and include valid character types")
   } else if (newPassword.length > 128) {
     alert("Password must be 8-128 characters and include valid character types")
   };
   
+   // Generate random selection of characters 
+  for (let i = 0; i < passLength; i++)
+  newPassword += validChar[Math.floor(Math.random() * validChar.length)];
   //This return logs new password to window
     return newPassword; 
 
