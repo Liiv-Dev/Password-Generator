@@ -21,7 +21,7 @@ function writePassword() {
 
 //verifies length of password
 function verifyLength(passLength) {
-  if (passLength.length > 8 && passLength < 128) {
+  if (passLength > 8 && passLength < 128) {
     return true;
   } else {
     return false;
@@ -31,11 +31,21 @@ function verifyLength(passLength) {
 // Function generates new password
 function generatePassword() {
   //Saves characters chosen by user
-  var charGen = [];
+  var charString = "";
+
   //Saves new password
   var newPassword = "";
+
   //Prompts for user to choose password
   var passLength = prompt("Choose a password with 8-128 characters");
+
+  //sets different character types to choose from
+  let validChar = {
+    upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    lowerCase: "abcdefghijklmnopqrstuvwxyz",
+    numbers: "1234567890",
+    symbols: "!@#$%^&*()`~{}|[]()"
+  }
 
 
   // sets confirmation for password options
@@ -45,25 +55,28 @@ function generatePassword() {
     let addNumbers = confirm("Will this password have numbers?");
     let addSymbols = confirm("Will this password have symbol keys?");
 
-    //sets different character types to choose from
-    let validChar = {
-      upperCase: ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
-      lowerCase: ["abcdefghijklmnopqrstuvwxyz"],
-      numbers: ["1234567890"],
-      symbols: ["!@#$%^&*()`~{}|[]()"]
-    }
-
     //Combines chosen letters
-    if (addUpperCase) charGen.push(validChar.upperCase);
-    if (addLowerCase) charGen.push(validChar.lowerCase);
-    if (addNumbers) charGen.push(validChar.numbers);
-    if (addSymbols) charGen.push(validChar.symbols);
-  };
+    //if (addUpperCase) charArray.push(validChar.upperCase);
+    //if (addLowerCase) charArray.push(validChar.lowerCase);
+    //if (addNumbers) charArray.push(validChar.numbers);
+    //if (addSymbols) charArray.push(validChar.symbols);
   
-   // Generate random selection of characters 
+  if (addUpperCase) {
+    return charString += validChar.upperCase
+  } else if (addLowerCase){
+    return charString += validChar.lowerCase
+  } else if (addNumbers) {
+    return charString += validChar.numbers
+  } else if (addSymbols){
+    return charString += validChar.symbols
+  }
+}
+  
+   // Generate random password based on selection of characters in array
   for (let i = 0; i < passLength; i++) {
-    var randomPass = (Math.floor(Math.random() * charGen.length))
-  newPassword += charGen.charAt(randomPass)}
+    randPassword = (Math.floor(Math.random() * charString.length));
+    newPassword += charString.charAt(randPassword)
+  }
 
 
   //This return logs new password to window
