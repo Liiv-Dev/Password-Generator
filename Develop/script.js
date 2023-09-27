@@ -10,13 +10,9 @@ function writePassword() {
   
 }
 
-//verifies length of password
+//verifies length of password using condition ternary operator 
 function verifyLength(passLength) {
-  if (passLength >= 8 && passLength <= 128) {
-    return true;
-  } else {
-    return false;
-  };
+  return passLength >= 8 && passLength <= 128 ? true : false;
 }
 
 // Function generates new password
