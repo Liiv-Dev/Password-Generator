@@ -41,29 +41,14 @@ function generatePassword() {
   
     //**NOTE** Find code for passwords with characters removed
     //Pushes letters and symbols into charString if user chooses to include type
-  if (addUpperCase) {
-     charString += charUpperCase
-  } else {
-    return false
-  }
+  addUpperCase ? charString += charUpperCase : false;
 
-  if (addLowerCase){
-     charString += charLowerCase
-  } else {
-    return false
-  }
+  addLowerCase ? charString += charLowerCase : false;
+  
+  addNumbers ? charString += charNumbers : false;
 
-  if (addNumbers) {
-     charString += charNumbers
-  } else {
-    return false
-  }
+  addSymbols ? charString += charSymbols : false
 
-  if (addSymbols){
-     charString += charSymbols
-  } else {
-    return false
-  }
 }
   
    // Generate random password based on selection of characters in array
